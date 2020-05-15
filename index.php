@@ -27,7 +27,7 @@ function createBooks($amount)
     $tempShelf = [];
     for ($i = 0; $i < $amount; $i++) {
         $titleLength = mt_rand(4, 20);
-        $book = substr(str_shuffle('ABCDEFGHIJK LMNOPQRSTUVWXYZ abcdefghijklmn opqrstuvxyz'), 1, $titleLength);
+        $book = substr(str_shuffle('ABCDEFGHIJKLMNOPQRSTUVWXYZ'), 1, $titleLength);
         array_push($tempShelf, $book);
     }
     return $tempShelf;
@@ -58,7 +58,7 @@ while ($bookFound == false) {
 
     // Leta upp en bok
     $middleBook = floor(($minBook + $maxBook) / 2);
-    echo "<p>" . $minBook . " - " . $maxBook;
+    echo "<p>" . $minBook . " - " . $maxBook . ": " . $middleBook . " (" . $bookshelf[$middleBook] . ")";
 
     // Är det min bok?
     if ($bookshelf[$middleBook] == $wantedBook) {

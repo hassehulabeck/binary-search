@@ -18,8 +18,30 @@ $bookshelf = [
     "Röda rummet",
     "Vingar av silver"
 ];
+
+// Skapa en funktion som producerar 990 "skräp-böcker", som har titlar som:
+$scrapBook = "sffwalefjei";
+
+function createBooks($amount)
+{
+    $tempShelf = [];
+    for ($i = 0; $i < $amount; $i++) {
+        $titleLength = mt_rand(4, 20);
+        $book = substr(str_shuffle('ABCDEFGHIJK LMNOPQRSTUVWXYZ abcdefghijklmn opqrstuvxyz'), 1, $titleLength);
+        array_push($tempShelf, $book);
+    }
+    return $tempShelf;
+}
+
+// Skapa 990 böcker och slå ihop arrayerna.
+$newBooks = createBooks(990);
+$bookshelf = array_merge($bookshelf, $newBooks);
+
 $middleBook = null;
+
+// Istället för hårdkodad boktitel - Hämta värde från formulär och sök efter det.
 $wantedBook = "Jane Eyre";
+
 $bookFound = false;     // Inte helt säker på att den behövs.
 $minBook = 0;
 $maxBook = count($bookshelf) - 1; // Få maxvärdet på bokhyllan
@@ -28,7 +50,7 @@ $message = "";
 // Sortera bokhyllan
 sort($bookshelf);
 
-var_dump($bookshelf);
+// var_dump($bookshelf);
 
 
 // Så länge som bok inte funnen

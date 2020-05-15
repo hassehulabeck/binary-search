@@ -13,15 +13,22 @@ $bookshelf = [
     "Tre män i en båt",
     "Flickan som lekte med elden",
     "Operativsystem vi glömt",
-    "C++ för nybörjare",
+    "Pascal för nybörjare",
     "Gösta Berlings saga",
     "Röda rummet",
     "Vingar av silver"
 ];
 $middleBook = null;
-$title = "Jane Eyre";
+$wantedBook = "Jane Eyre";
+$bookFound = false;     // Inte helt säker på att den behövs.
 $minBook = 0;
 $maxBook = count($bookshelf) - 1; // Få maxvärdet på bokhyllan
+
+// Sortera bokhyllan
+sort($bookshelf);
+
+var_dump($bookshelf);
+
 
 // Så länge som bok inte funnen
     // Leta upp en bok

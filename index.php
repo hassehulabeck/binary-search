@@ -23,6 +23,7 @@ $wantedBook = "Jane Eyre";
 $bookFound = false;     // Inte helt säker på att den behövs.
 $minBook = 0;
 $maxBook = count($bookshelf) - 1; // Få maxvärdet på bokhyllan
+$message = "";
 
 // Sortera bokhyllan
 sort($bookshelf);
@@ -31,11 +32,26 @@ var_dump($bookshelf);
 
 
 // Så länge som bok inte funnen
-    // Leta upp en bok
-    // Är det min bok?
-        // Ja - meddela
-        // Nej - fortsätt leta
+while ($bookFound == false) {
 
-            // Ändra min och max-värden
-                // ?
+    // Leta upp en bok
+    $middleBook = floor(($minBook + $maxBook) / 2);
+    echo "<p>" . $minBook . " - " . $maxBook;
+
+    // Är det min bok?
+    if ($bookshelf[$middleBook] == $wantedBook) {
+        // Ja - meddela
+        $bookFound = true;
+        $message = "Hurra";
+    }
+    // Nej - fortsätt leta
+    // Ändra min och max-värden
+    else if ($bookshelf[$middleBook] < $wantedBook) {
+        $minBook = $middleBook + 1;
+    } else {
+        $maxBook = $middleBook - 1;
+    }
+}
+
 // Meddela resultat
+echo $message;
